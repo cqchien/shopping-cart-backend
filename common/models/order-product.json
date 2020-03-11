@@ -1,41 +1,35 @@
 {
-  "name": "Product",
-  "plural": "products",
+  "name": "OrderProduct",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "categoryId": {
+    "orderId": {
       "type": "object",
       "required": true
     },
-    "name": {
-      "type": "string",
+    "productId": {
+      "type": "object",
       "required": true
     },
-    "image": {
-      "type": "string",
-      "required": true
-    },
-    "price": {
+    "quantity": {
       "type": "number",
       "required": true
     }
   },
   "validations": [],
   "relations": {
-    "category": {
+    "product": {
       "type": "belongsTo",
-      "model": "Category",
-      "foreignKey": "categoryId"
+      "model": "Product",
+      "foreignKey": "productId"
     },
-    "orders": {
-      "type": "hasMany",
+    "order": {
+      "type": "belongsTo",
       "model": "Order",
-      "foreignKey": "productId",
-      "through": "OrderProduct"
+      "foreignKey": "orderId"
     }
   },
   "acls": [],

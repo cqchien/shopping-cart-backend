@@ -14,15 +14,18 @@
     "posttest": "npm run lint"
   },
   "dependencies": {
+    "bluebird": "^3.7.2",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "helmet": "^3.10.0",
+    "lodash": "^4.17.15",
     "loopback": "^3.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^6.2.0",
     "loopback-connector-mongodb": "^5.1.0",
     "serve-favicon": "^2.0.1",
-    "strong-error-handler": "^3.0.0"
+    "strong-error-handler": "^3.0.0",
+    "validator": "^12.2.0"
   },
   "devDependencies": {
     "eslint": "^3.17.1",

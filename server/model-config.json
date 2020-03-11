@@ -42,5 +42,13 @@
   "Product": {
     "dataSource": "MongoDB",
     "public": true
+  },
+  "Order": {
+    "dataSource": "MongoDB",
+    "public": true
+  },
+  "OrderProduct": {
+    "dataSource": "MongoDB",
+    "public": true
   }
 }

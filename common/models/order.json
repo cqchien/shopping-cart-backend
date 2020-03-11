@@ -1,18 +1,15 @@
 {
-  "name": "Category",
-  "plural": "categories",
+  "name": "Order",
+  "plural": "orders",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "name": {
-      "type": "string",
+    "accountId": {
+      "type": "object",
       "required": true
-    },
-    "image": {
-      "type": "string"
     }
   },
   "validations": [],
@@ -20,7 +17,8 @@
     "products": {
       "type": "hasMany",
       "model": "Product",
-      "foreignKey": "categoryId"
+      "foreignKey": "orderId",
+      "through": "OrderProduct"
     }
   },
   "acls": [],
