@@ -1,41 +1,35 @@
 {
-  "name": "Product",
-  "plural": "products",
-  "base": "PersistedModel",
+  "name": "Account",
+  "plural": "accounts",
+  "base": "User",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "categoryId": {
-      "type": "object",
-      "required": true
-    },
-    "name": {
+    "email": {
       "type": "string",
       "required": true
     },
-    "image": {
+    "password": {
       "type": "string",
       "required": true
     },
-    "price": {
-      "type": "number",
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "string",
       "required": true
     }
   },
   "validations": [],
   "relations": {
-    "category": {
-      "type": "belongsTo",
-      "model": "Category",
-      "foreignKey": "categoryId"
-    },
     "orders": {
       "type": "hasMany",
       "model": "Order",
-      "foreignKey": "productId",
-      "through": "OrderProduct"
+      "foreignKey": "accountId"
     }
   },
   "acls": [
@@ -48,16 +42,30 @@
     {
       "accessType": "EXECUTE",
       "principalType": "ROLE",
-      "principalId": "$everyone",
+      "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "find"
     },
     {
       "accessType": "EXECUTE",
       "principalType": "ROLE",
-      "principalId": "$everyone",
+      "principalId": "$authenticated",
       "permission": "ALLOW",
-      "property": "findById"
+      "property": "__create__orders"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__get__orders"
+    },  
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__findById__orders"
     }
   ],
   "methods": {}
